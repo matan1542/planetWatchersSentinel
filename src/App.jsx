@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {sentialService} from './services/sential.service.js'
+import {sentinelService} from './services/sentinel.service.js'
 import { useEffect } from 'react';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   useEffect(()=>{
     fetch()
     async function fetch(){
-      sentialService.getImage()
+      sentinelService.getImage()
     }
   },[])
   return (

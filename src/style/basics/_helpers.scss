@@ -1,0 +1,181 @@
+// Font Sizes
+.fs12 { font-size: rem(12px); }
+.fs14 { font-size: rem(14px); }
+.fs18 { font-size: rem(18px); }
+.fs20 { font-size: rem(20px); }
+.fs24 { font-size: rem(24px); }
+.fs28 { font-size: rem(28px); }
+.fs30 { font-size: rem(30px); }
+
+// Margin helpers
+.mb-1{ margin-bottom: 0.3rem; }
+.mb-2{ margin-bottom: 0.6rem; }
+.mb-3{ margin-bottom: 1rem; }
+.mb-4{ margin-bottom: 2rem; }
+
+.mr-1{ margin-right:0.3rem}
+
+//Padding helper
+.pb-1{ padding-bottom: 0.3rem; }
+.pb-2{ padding-bottom: 0.6rem; }
+.pb-3{ padding-bottom: 1rem; }
+.pb-4{ padding-bottom: 2rem; }
+
+// width helper 
+.w-100 { width: 100%; }  
+.w-75 { width: 75%; }
+.w-50 { width: 50%; }
+.w-33 { width: 33%; }
+.w-25 { width: 25%; }
+.w-10 { width: 10%; }
+
+// flex helpers
+
+.flex {
+
+  display: flex;
+
+  > *.full {
+      flex: 1;
+  }
+  &.column {
+      flex-direction: column;
+  }
+  &.justify-center {
+      justify-content: center;
+  }
+  &.space-between{
+      justify-content: space-between;
+  }
+  &.space-evenly{
+      justify-content: space-evenly;
+  }
+  &.space-around{
+      justify-content: space-around;
+  }
+  &.align-center {
+      align-items: center;
+  }
+  &.wrap {
+      flex-wrap: wrap;
+  }
+  &.row-reverse {
+      flex-direction: row-reverse;
+  }
+  &.column-reverse {
+      flex-direction: column-reverse;
+  }
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+}
+
+.grid-gap {
+  gap: 10px 10px;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-text-center{
+  text-align: center;
+}
+
+/* LIST */
+.clean-list {
+  list-style: none;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+/* Anchor */
+.decoration-none {
+  text-decoration: none;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.inline {display: inline;}
+
+/* MARGIN */
+.mb-1 {
+  margin-bottom: 0.3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.6rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+/* PADDING */
+
+.pb-1 {
+  padding-bottom: 0.3rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.6rem;
+}
+
+.pb3- {
+  padding-bottom: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 2rem;
+}
+
+/* TEXT DECORATION */
+h4{
+  font-size:1.4rem;
+  font-weight: normal;
+}
+
+/* COLORS */
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.black {
+  color: black;
+}
+.white {
+  color: white;
+}
+
+
+/* HEADER HALPERS */
+.active{
+  background-color:inherit;
+  color: #222222;
+}
+
+// Media helpers
+
+.square-ratio {
+  @include aspect-ratio(1, 1);
+}
+.video-ratio {
+  @include aspect-ratio(16, 9);
+}
+.portrait-ratio {
+  @include aspect-ratio(9, 16);
+}

@@ -226,8 +226,7 @@ function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.ge
           
           function evaluatePixel(sample) {
             return [2.5 * sample.B04, 2.5 * sample.B03, 2.5 * sample.B02]
-          }
-        `
+          } `
     }
 }
 

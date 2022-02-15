@@ -10,9 +10,7 @@ export const sentinelService = {
 const clientId = "361b4940-325f-4481-9cd2-e2529b54e84b"
 const clientSecret = "dJm4jla.v@hLxSS.K/1fhLCI7T~Q(Xu>|??}ZY0v"
 
-
-
-
+// Creating access_token - https://docs.sentinel-hub.com/api/latest/api/overview/authentication/
 async function getAccessToken() {
     const config = {
         headers: {
@@ -36,6 +34,7 @@ async function getAccessToken() {
 
 
 //To build the coordinates area - https://apps.sentinel-hub.com/requests-builder/
+//To build the request body object - https://docs.sentinel-hub.com/api/latest/reference/#operation/dataImport_searchData
 function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.getRandomDates()) {
     return {
         "input": {

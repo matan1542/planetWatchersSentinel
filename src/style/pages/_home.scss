@@ -1,5 +1,18 @@
 .home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     flex: 1;
+    .map-details-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top:20px;
+        font-size: 1.3rem;
+    }
+}
+.img-container{
+    height: 70%;
 }
 
 .buttons-map-container {

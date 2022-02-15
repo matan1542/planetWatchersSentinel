@@ -37,7 +37,6 @@ async function getAccessToken() {
 
 //To build the coordinates area - https://apps.sentinel-hub.com/requests-builder/
 function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.getRandomDates()) {
-    console.log('maxCloudCover,dates', maxCloudCover, dates);
     return {
         "input": {
             "bounds": {

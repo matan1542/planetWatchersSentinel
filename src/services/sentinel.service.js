@@ -2,7 +2,6 @@
 
 import axios from "axios"
 import qs from "qs"
-import { utilsService } from "./utils-service"
 import { dateService } from "./date.service"
 export const sentinelService = {
     getReqBodyDetails,
@@ -33,12 +32,11 @@ async function getAccessToken() {
         console.log(err);
         throw new Error('can\'t get token')
     }
-
 }
 
 
 //To build the coordinates area - https://apps.sentinel-hub.com/requests-builder/
-function getReqBodyDetails(maxCloudCover = 30, dates = dateService.getRandomDates()) {
+function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.getRandomDates()) {
     console.log('maxCloudCover,dates', maxCloudCover, dates);
     return {
         "input": {
@@ -204,8 +202,8 @@ function getReqBodyDetails(maxCloudCover = 30, dates = dateService.getRandomDate
             ]
         },
         "output": {
-            "width": 512,
-            "height": 1249.631,
+            "width": pageHeight*0.42,
+            "height": pageHeight,
             "responses": [
                 {
                     "identifier": "default",

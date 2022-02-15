@@ -13,19 +13,22 @@ export default function Home() {
   useEffect(() => {
     setImgs()
   }, [])
+  const pageHeight = useMemo(()=>{
+      return window.innerHeight * 0.6
+  })
   const setImgs = async ()=>{
     const authorizationToken = await sentinelService.getAccessToken()
     Object.assign(instance.defaults, { headers: { authorization: authorizationToken } })
     const imgs = []
     for(let i = 0; i<2;i++){
-      const img = await getImg(authorizationToken)
+      const img = await getImg()
       imgs.push(img)
     }
     setSentinelImgs(imgs)
   }
   const getImg = async () => {
   try{
-    const img = await instance.post('/api/v1/process', sentinelService.getReqBodyDetails())
+    const img = await instance.post('/api/v1/process', sentinelService.getReqBodyDetails(pageHeight))
     const url = URL.createObjectURL(img.data)
 
     return url
@@ -37,8 +40,12 @@ export default function Home() {
 
   if(!sentinelImgs) return <div>Loading... </div>
   return (
-    <div className="Home-container">
+    <div className="home-container">
         <ImgList sentinelImgs={sentinelImgs}/>
+        <div className="buttons-map-container">
+            <button className="btn btn-replace" onClick={setImgs}>Replace Images</button>
+            <button className="btn btn-cloud">Clouder</button>
+        </div>
     </div>
   )
 }

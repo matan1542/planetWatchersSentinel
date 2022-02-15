@@ -1,3 +1,15 @@
-.app-container{
-   
+.home-container {
+    flex: 1;
+}
+
+.buttons-map-container {
+    display: flex;
+    justify-content: center;
+    & > * {
+        // border: 2px solid #38b7b1;
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #38b7b1;
+    }
 }

@@ -1,17 +1,20 @@
+
 // async function getImage() {
 //     const instance = axios.create({
 //         baseURL: "https://services.sentinel-hub.com"
 //     })
+//     const authorizationToken = await sentinelService.getAccessToken()
+//     Object.assign(instance.defaults, { headers: { authorization: authorizationToken } })
 
 //     // Object.assign(instance.defaults, { headers: { authorization: `Bearer ${accessToken}` } })
 //     console.log('instance', instance.defaults);
 //     const response = instance.post("/api/v1/process", {
-//         body: {
-//             "input": {
-//                 "bounds": {
-//                     "geometry": {
-//                         "type": "MultiPolygon",
-//                         "coordinates": [
+//         "input": {
+//             "bounds": {
+//                 "geometry": {
+//                     "type": "MultiPolygon",
+//                     "coordinates": [
+//                         [
 //                             [
 //                                 [
 //                                     35.134816,
@@ -151,33 +154,35 @@
 //                                 ]
 //                             ]
 //                         ]
-//                     }
-//                 },
-//                 "data": [
-//                     {
-//                         "type": "sentinel-2-l2a",
-//                         "dataFilter": {
-//                             "timeRange": {
-//                                 "from": "2018-10-01T00:00:00Z",
-//                                 "to": "2018-12-31T00:00:00Z"
-//                             }
+
+//                     ]
+//                 }
+//             },
+//             "data": [
+//                 {
+//                     "type": "sentinel-2-l2a",
+//                     "dataFilter": {
+//                         "timeRange": {
+//                             "from": "2018-10-01T00:00:00Z",
+//                             "to": "2018-12-31T00:00:00Z"
 //                         }
 //                     }
-//                 ]
-//             },
-//             "output": {
-//                 "width": 512,
-//                 "height": 1249.631,
-//                 "responses": [
-//                     {
-//                         "identifier": "default",
-//                         "format": {
-//                             "type": "image/png"
-//                         }
+//                 }
+//             ]
+//         },
+//         "output": {
+//             "width": 512,
+//             "height": 1249.631,
+//             "responses": [
+//                 {
+//                     "identifier": "default",
+//                     "format": {
+//                         "type": "image/png"
 //                     }
-//                 ]
-//             },
-//             "evalscript": `
+//                 }
+//             ]
+//         },
+//         "evalscript": `
 //         //VERSION=3
     
 //         function setup() {
@@ -193,7 +198,6 @@
 //             return [2.5 * sample.B04, 2.5 * sample.B03, 2.5 * sample.B02]
 //           }
 //         `
-//         }
 //     })
 //     console.log(response);
 // }

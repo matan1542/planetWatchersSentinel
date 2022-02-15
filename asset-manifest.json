@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/matan1542/planetWatchersSentinel/static/css/main.1ee9dd03.css",
-    "main.js": "/matan1542/planetWatchersSentinel/static/js/main.07f9be46.js",
-    "static/js/787.f80d8f82.chunk.js": "/matan1542/planetWatchersSentinel/static/js/787.f80d8f82.chunk.js",
-    "static/media/OpenSans-Regular.ttf": "/matan1542/planetWatchersSentinel/static/media/OpenSans-Regular.1b0809d519837cb7aad3.ttf",
-    "static/media/logo-planet.png": "/matan1542/planetWatchersSentinel/static/media/logo-planet.b931adfcbef4d652f4b2.png",
-    "static/media/logo.svg": "/matan1542/planetWatchersSentinel/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/matan1542/planetWatchersSentinel/index.html",
-    "main.1ee9dd03.css.map": "/matan1542/planetWatchersSentinel/static/css/main.1ee9dd03.css.map",
-    "main.07f9be46.js.map": "/matan1542/planetWatchersSentinel/static/js/main.07f9be46.js.map",
-    "787.f80d8f82.chunk.js.map": "/matan1542/planetWatchersSentinel/static/js/787.f80d8f82.chunk.js.map"
+    "main.css": "/static/css/main.b94d1617.css",
+    "main.js": "/static/js/main.e6e21201.js",
+    "static/js/787.f80d8f82.chunk.js": "/static/js/787.f80d8f82.chunk.js",
+    "static/media/OpenSans-Regular.ttf": "/static/media/OpenSans-Regular.1b0809d519837cb7aad3.ttf",
+    "static/media/logo-planet.png": "/static/media/logo-planet.b931adfcbef4d652f4b2.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.b94d1617.css.map": "/static/css/main.b94d1617.css.map",
+    "main.e6e21201.js.map": "/static/js/main.e6e21201.js.map",
+    "787.f80d8f82.chunk.js.map": "/static/js/787.f80d8f82.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ee9dd03.css",
-    "static/js/main.07f9be46.js"
+    "static/css/main.b94d1617.css",
+    "static/js/main.e6e21201.js"
   ]
 }

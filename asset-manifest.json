@@ -1,18 +1,17 @@
 {
   "files": {
     "main.css": "/planetWatchersSentinel/static/css/main.4029699e.css",
-    "main.js": "/planetWatchersSentinel/static/js/main.6a0d9fe4.js",
+    "main.js": "/planetWatchersSentinel/static/js/main.599d49d4.js",
     "static/js/787.f80d8f82.chunk.js": "/planetWatchersSentinel/static/js/787.f80d8f82.chunk.js",
     "static/media/OpenSans-Regular.ttf": "/planetWatchersSentinel/static/media/OpenSans-Regular.1b0809d519837cb7aad3.ttf",
     "static/media/logo-planet.png": "/planetWatchersSentinel/static/media/logo-planet.b931adfcbef4d652f4b2.png",
-    "static/media/logo.svg": "/planetWatchersSentinel/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/planetWatchersSentinel/index.html",
     "main.4029699e.css.map": "/planetWatchersSentinel/static/css/main.4029699e.css.map",
-    "main.6a0d9fe4.js.map": "/planetWatchersSentinel/static/js/main.6a0d9fe4.js.map",
+    "main.599d49d4.js.map": "/planetWatchersSentinel/static/js/main.599d49d4.js.map",
     "787.f80d8f82.chunk.js.map": "/planetWatchersSentinel/static/js/787.f80d8f82.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4029699e.css",
-    "static/js/main.6a0d9fe4.js"
+    "static/js/main.599d49d4.js"
   ]
 }

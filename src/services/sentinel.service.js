@@ -26,7 +26,7 @@ async function getAccessToken() {
     try {
         const token = await axios.post('https://services.sentinel-hub.com/oauth/token', body, config)
         console.log('token', token);
-        return `Bearer ${token.data.access_token}`
+        return token
     } catch (err) {
         console.log(err);
         throw new Error('can\'t get token')

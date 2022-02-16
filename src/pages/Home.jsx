@@ -27,7 +27,6 @@ export default function Home() {
     })
     const setImgs = async () => {
         setIsLoading(true)
-        console.log('imgsCount: ' + imgsCount);
         let authorizationToken
         if (activeToken) {
             authorizationToken = `Bearer ${activeToken.data.access_token}`

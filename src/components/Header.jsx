@@ -9,7 +9,6 @@ export default function Header() {
     const [isDark, setIsDark] = useRecoilState(isDarkMode)
     const onToggle = () => {
         setIsDark(!isDark)
-        console.log('isDark', isDark);
     }
     return (
         <div className={`header-container ${isDark ? 'dark-mode' : ''}`}>

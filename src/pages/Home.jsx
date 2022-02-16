@@ -21,18 +21,21 @@ export default function Home() {
     })
     useEffect(() => {
         setImgs()
-    }, [cloudCover,imgsCount])
+    }, [cloudCover, imgsCount])
     const pageHeight = useMemo(() => {
         return window.innerHeight * 0.6
     })
     const setImgs = async () => {
         setIsLoading(true)
         console.log('imgsCount: ' + imgsCount);
-        if (!activeToken) {
+        let authorizationToken
+        if (activeToken) {
+            authorizationToken = `Bearer ${activeToken.data.access_token}`
+        } else {
             const token = await sentinelService.getAccessToken()
-           await setActiveToken(token)
+            authorizationToken = `Bearer ${token.data.access_token}`
+            setActiveToken(token)
         }
-        let authorizationToken = `Bearer ${activeToken.data.access_token}`
 
         Object.assign(instance.defaults, { headers: { authorization: authorizationToken } })
         const imgs = []
@@ -70,7 +73,7 @@ export default function Home() {
         let count = imgsCount + counter
         if (count > 4 || count < 0) return
         setImgsCount(count)
-        
+
     }
     return (
         <div className={`home-container ${isDark ? 'dark-mode' : ''}`}>
@@ -85,8 +88,8 @@ export default function Home() {
                 <button className="btn btn-replace" onClick={_.debounce(replaceImgs, 2000)}>Replace Images</button>
                 <button className="btn btn-cloud" onClick={_.debounce(increaseCloudCover, 1000)}>Clouder</button>
                 <button className="btn btn-bright" onClick={_.debounce(decreaseCloudCover, 1000)}>Brighter</button>
-                <button className="btn btn-increase-count" onClick={_.debounce(()=>addDeleteNewImg(1), 1000)}>Add new image</button>
-                <button className="btn btn-increase-count" onClick={_.debounce(()=>addDeleteNewImg(-1), 1000)}>Remove one image</button>
+                <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(1), 1000)}>Add new image</button>
+                <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(-1), 1000)}>Remove one image</button>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@
   "name": "planet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://matan1542.github.io",
+  "homepage": "http://matan1542.github.io/planetWatchersSentinel",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",

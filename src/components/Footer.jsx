@@ -1,7 +1,11 @@
 import React from 'react'
+import { useRecoilValue } from 'recoil'
+import { isDarkMode } from '../store/store'
+
 
 export default function Footer() {
-  return (
-    <div className="footer-container">© Matan Lasry 2022</div>
-  )
+    const isDark = useRecoilValue(isDarkMode)
+    return (
+        <div className={`footer-container ${isDark ? 'dark-mode' : ''}`}>© Matan Lasry 2022</div>
+    )
 }

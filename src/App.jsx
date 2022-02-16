@@ -18,15 +18,17 @@ function App() {
 
   return (
     <div className="app-container">
-      <header>
-        <Header />
-      </header>
-      <main className="main-container">
-        <Home />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <RecoilRoot>
+        <header>
+          <Header />
+        </header>
+        <main className="main-container">
+          <Home />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </RecoilRoot>
     </div>
   );
 }

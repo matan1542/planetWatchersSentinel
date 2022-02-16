@@ -4,9 +4,12 @@ import { useEffect, useMemo, useState } from 'react';
 import ImgList from '../components/ImgList';
 import _ from 'lodash';
 import Loader from '../components/Loader';
+import { isDarkMode } from '../store/store';
 import { sentinelService } from '../services/sentinel.service';
+import { useRecoilValue } from 'recoil';
 
 export default function Home() {
+    const isDark = useRecoilValue(isDarkMode)
     const [sentinelImgs, setSentinelImgs] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [cloudCover, setCloudCover] = useState(30)
@@ -34,7 +37,7 @@ export default function Home() {
     }
     const getImg = async () => {
         try {
-            const img = await instance.post('/api/v1/process', sentinelService.getReqBodyDetails(pageHeight,cloudCover))
+            const img = await instance.post('/api/v1/process', sentinelService.getReqBodyDetails(pageHeight, cloudCover))
             const url = URL.createObjectURL(img.data)
             return url
         } catch (err) {
@@ -55,15 +58,15 @@ export default function Home() {
 
     }
     return (
-        <div className="home-container">
-            <div className="map-details-container">
+        <div className={`home-container ${isDark ? 'dark-mode' : ''}`}>
+            <div className={`map-details-container ${isDark ? 'dark-mode' : ''}`}>
                 <h1>Israel map</h1>
                 <h2>cloud covarage: {cloudCover}%</h2>
             </div>
             <div className="img-container">
                 {(!isLoading && sentinelImgs) ? <ImgList sentinelImgs={sentinelImgs} /> : <Loader />}
             </div>
-            <div className="buttons-map-container">
+            <div className={`buttons-map-container ${isDark ? 'dark-mode' : ''}`}>
                 <button className="btn btn-replace" onClick={_.debounce(replaceImgs, 2000)}>Replace Images</button>
                 <button className="btn btn-cloud" onClick={_.debounce(increaseCloudCover, 1000)}>Clouder</button>
                 <button className="btn btn-cloud" onClick={_.debounce(decreaseCloudCover, 1000)}>Brighter</button>

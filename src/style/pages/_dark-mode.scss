@@ -1,0 +1,32 @@
+.header-container.dark-mode {
+    background-color: $clr4;
+}
+
+.home-container.dark-mode {
+    background-color: $clr3;
+}
+
+.buttons-map-container.dark-mode {
+    & > * {
+        background-color: $clr7;
+        color: $clr9;
+        &:hover {
+            background-color: $clr1;
+            color: $clr7;
+        }
+    }
+}
+.map-details-container.dark-mode {
+    &>*{
+        color: $clr7;
+    }
+}
+
+.footer-container.dark-mode {
+    background-color: $clr4;
+    color: $clr7;
+}
+
+// .dark-mode{
+//     background-color: $clr4;
+// }

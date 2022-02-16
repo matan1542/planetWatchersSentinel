@@ -16,7 +16,11 @@
 @import "components/header.scss";
 @import "components/footer.scss";
 @import "components/loader.scss";
+@import "components/toggle.scss";
 
 //Pages
 @import "pages/home.scss";
+
+//Dark mode styles
+@import "pages/dark-mode.scss";
 

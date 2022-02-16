@@ -2,7 +2,7 @@
   "name": "planet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://matan1542.github.io/planetWatchersSentinel.git",
+  "homepage": "https://matan1542.github.io/planetWatchersSentinel",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -21,6 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "CI":"npm run build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",

@@ -58,14 +58,10 @@ export default function Home() {
     const replaceImgs = async () => {
         setImgs()
     }
-    const increaseCloudCover = () => {
-        if (cloudCover > 100) return
-        setCloudCover(cloudCover + 10)
-    }
-    const decreaseCloudCover = () => {
-        if (cloudCover < 0) return
-        setCloudCover(cloudCover - 10)
-
+    const increaseDecreaseCloudCover = (counter) => {
+        let count = cloudCover + counter
+        if (count < 0 || count > 100) return
+        setCloudCover(count)
     }
 
     const addDeleteNewImg = (counter) => {
@@ -85,8 +81,8 @@ export default function Home() {
             </div>
             <div className={`buttons-map-container ${isDark ? 'dark-mode' : ''}`}>
                 <button className="btn btn-replace" onClick={_.debounce(replaceImgs, 2000)}>Replace Images</button>
-                <button className="btn btn-cloud" onClick={_.debounce(increaseCloudCover, 1000)}>Clouder</button>
-                <button className="btn btn-bright" onClick={_.debounce(decreaseCloudCover, 1000)}>Brighter</button>
+                <button className="btn btn-cloud" onClick={_.debounce(()=>increaseDecreaseCloudCover(10), 1000)}>Clouder</button>
+                <button className="btn btn-bright" onClick={_.debounce(()=>increaseDecreaseCloudCover(-10), 1000)}>Brighter</button>
                 <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(1), 1000)}>Add new image</button>
                 <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(-1), 1000)}>Remove one image</button>
             </div>

@@ -200,6 +200,7 @@ function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.ge
             ]
         },
         "output": {
+            //Image loading time
             "width": pageHeight*0.42,
             "height": pageHeight,
             "responses": [
@@ -211,6 +212,7 @@ function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.ge
                 }
             ]
         },
+        // Defines how the satellite data shall be processed by Sentinel Hub and what values the service shall return.
         "evalscript": `
         //VERSION=3
     

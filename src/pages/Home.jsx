@@ -14,6 +14,7 @@ export default function Home() {
     const [isLoading, setIsLoading] = useState(false)
     const [cloudCover, setCloudCover] = useState(30)
     const [imgsCount, setImgsCount] = useState(2)
+    const [tokenExpiration, setTokenExpiration] = useState(null)
     const [activeToken, setActiveToken] = useState(null)
     const instance = axios.create({
         baseURL: 'https://services.sentinel-hub.com',
@@ -28,11 +29,14 @@ export default function Home() {
     const setImgs = async () => {
         setIsLoading(true)
         let authorizationToken
-        if (activeToken) {
+        let expires = Date.now()
+        if (activeToken && expires < tokenExpiration) {
             authorizationToken = `Bearer ${activeToken.data.access_token}`
         } else {
             const token = await sentinelService.getAccessToken()
+            setTokenExpiration(Date.now() + token.data.expires_in)
             authorizationToken = `Bearer ${token.data.access_token}`
+
             setActiveToken(token)
         }
 

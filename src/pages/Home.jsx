@@ -14,8 +14,11 @@ export default function Home() {
     const [isLoading, setIsLoading] = useState(false)
     const [cloudCover, setCloudCover] = useState(30)
     const [imgsCount, setImgsCount] = useState(2)
+    const [attempts,setAttempts] = useState(0)
     const [tokenExpiration, setTokenExpiration] = useState(null)
     const [activeToken, setActiveToken] = useState(null)
+
+    //https://stackoverflow.com/questions/60454048/how-does-axios-handle-blob-vs-arraybuffer-as-responsetype
     const instance = axios.create({
         baseURL: 'https://services.sentinel-hub.com',
         responseType: 'blob'
@@ -85,8 +88,8 @@ export default function Home() {
             </div>
             <div className={`buttons-map-container ${isDark ? 'dark-mode' : ''}`}>
                 <button className="btn btn-replace" onClick={_.debounce(replaceImgs, 2000)}>Replace Images</button>
-                <button className="btn btn-cloud" onClick={_.debounce(()=>increaseDecreaseCloudCover(10), 1000)}>Clouder</button>
-                <button className="btn btn-bright" onClick={_.debounce(()=>increaseDecreaseCloudCover(-10), 1000)}>Brighter</button>
+                <button className="btn btn-cloud" onClick={_.debounce(() => increaseDecreaseCloudCover(10), 1000)}>Clouder</button>
+                <button className="btn btn-bright" onClick={_.debounce(() => increaseDecreaseCloudCover(-10), 1000)}>Brighter</button>
                 <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(1), 1000)}>Add new image</button>
                 <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(-1), 1000)}>Remove one image</button>
             </div>

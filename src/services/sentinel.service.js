@@ -7,6 +7,8 @@ export const sentinelService = {
     getReqBodyDetails,
     getAccessToken
 }
+
+
 const clientId = "361b4940-325f-4481-9cd2-e2529b54e84b"
 const clientSecret = "dJm4jla.v@hLxSS.K/1fhLCI7T~Q(Xu>|??}ZY0v"
 
@@ -35,7 +37,7 @@ async function getAccessToken() {
 
 //To build the coordinates area - https://apps.sentinel-hub.com/requests-builder/
 //To build the request body object - https://docs.sentinel-hub.com/api/latest/reference/#operation/dataImport_searchData
-function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.getRandomDates()) {
+function getReqBodyDetails(pageHeight, maxCloudCover = 30, dates = dateService.getRandomDates()) {
     return {
         "input": {
             "bounds": {
@@ -201,7 +203,7 @@ function getReqBodyDetails(pageHeight,maxCloudCover = 30, dates = dateService.ge
         },
         "output": {
             //Image loading time
-            "width": pageHeight*0.42,
+            "width": pageHeight * 0.42,
             "height": pageHeight,
             "responses": [
                 {

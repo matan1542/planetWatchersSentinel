@@ -13,8 +13,8 @@ export default function Home() {
     const [sentinelImgs, setSentinelImgs] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [cloudCover, setCloudCover] = useState(30)
+    const [brightness, setBrightness] = useState(1)
     const [imgsCount, setImgsCount] = useState(2)
-    const [attempts,setAttempts] = useState(0)
     const [tokenExpiration, setTokenExpiration] = useState(null)
     const [activeToken, setActiveToken] = useState(null)
 
@@ -23,12 +23,14 @@ export default function Home() {
         baseURL: 'https://services.sentinel-hub.com',
         responseType: 'blob'
     })
+
     useEffect(() => {
         setImgs()
     }, [cloudCover, imgsCount])
     const pageHeight = useMemo(() => {
         return window.innerHeight * 0.6
     })
+    
     const setImgs = async () => {
         setIsLoading(true)
         let authorizationToken
@@ -39,7 +41,6 @@ export default function Home() {
             const token = await sentinelService.getAccessToken()
             setTokenExpiration(Date.now() + token.data.expires_in)
             authorizationToken = `Bearer ${token.data.access_token}`
-
             setActiveToken(token)
         }
 
@@ -70,6 +71,11 @@ export default function Home() {
         if (count < 0 || count > 100) return
         setCloudCover(count)
     }
+    const increaseDecreaseBrightnessCover = (counter) => {
+        let count = brightness + counter
+        if (count < 0 || count > 10) return
+        setBrightness(count)
+    }
 
     const addDeleteNewImg = (counter) => {
         let count = imgsCount + counter
@@ -82,14 +88,17 @@ export default function Home() {
             <div className={`map-details-container ${isDark ? 'dark-mode' : ''}`}>
                 <h1>Israel map</h1>
                 <h2>cloud covarage: {cloudCover}%</h2>
+                <h2>Brightness: {Math.round(brightness * 100)}%</h2>
             </div>
             <div className="img-container">
-                {(!isLoading && sentinelImgs) ? <ImgList sentinelImgs={sentinelImgs} /> : <Loader />}
+                {(!isLoading && sentinelImgs) ? <ImgList sentinelImgs={sentinelImgs} brightness={brightness} /> : <Loader />}
             </div>
             <div className={`buttons-map-container ${isDark ? 'dark-mode' : ''}`}>
                 <button className="btn btn-replace" onClick={_.debounce(replaceImgs, 2000)}>Replace Images</button>
                 <button className="btn btn-cloud" onClick={_.debounce(() => increaseDecreaseCloudCover(10), 1000)}>Clouder</button>
-                <button className="btn btn-bright" onClick={_.debounce(() => increaseDecreaseCloudCover(-10), 1000)}>Brighter</button>
+                <button className="btn btn-cloud-decrease" onClick={_.debounce(() => increaseDecreaseCloudCover(-10), 1000)}>Less cloud cover</button>
+                <button className="btn btn-cloud-decrease" onClick={() => increaseDecreaseBrightnessCover(0.1)}>Brighter</button>
+                <button className="btn btn-cloud-decrease" onClick={() => increaseDecreaseBrightnessCover(-0.1)}>Less Brighter</button>
                 <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(1), 1000)}>Add new image</button>
                 <button className="btn btn-increase-count" onClick={_.debounce(() => addDeleteNewImg(-1), 1000)}>Remove one image</button>
             </div>
